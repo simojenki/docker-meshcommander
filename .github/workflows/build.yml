@@ -40,5 +40,5 @@ jobs:
           build-args: |
             MESHCOMMANDER_VERSION=${{ steps.meta.outputs.tags }}
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags || 'simojenki/meshcommander:latest' }}
+          tags: ${{ steps.meta.outputs.tags || '***/meshcommander:latest' }}
           labels: ${{ steps.meta.outputs.labels }}
