@@ -17,15 +17,15 @@ jobs:
       - 
         name: Check out the repo
         uses: actions/checkout@v2
-      -
-        name: Docker meta
-        id: meta
-        uses: docker/metadata-action@v4
-        with:
-          images: |
-            simojenki/meshcommander
-          tags: |
-            type=semver,pattern={{version}}
+      # -
+      #   name: Docker meta
+      #   id: meta
+      #   uses: docker/metadata-action@v4
+      #   with:
+      #     images: |
+      #       simojenki/meshcommander
+      #     tags: |
+      #       type=semver,pattern={{version}}
       -
         name: Login to DockerHub
         if: github.event_name != 'pull_request'
@@ -44,4 +44,4 @@ jobs:
           tags: |
             "simojenki/meshcommander:$MESHCOMMANDER_VERSION"
             "simojenki/meshcommander:latest"
-          labels: ${{ steps.meta.outputs.labels }}
+          # labels: ${{ steps.meta.outputs.labels }}
