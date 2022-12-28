@@ -6,8 +6,6 @@ on:
       - 'master'
     tags:
       - 'v*'
-  schedule:
-    - cron: '0 0 * * 0'
 
 jobs:
 
@@ -18,12 +16,12 @@ jobs:
       - 
         name: Check out the repo
         uses: actions/checkout@v2
-      # -
-      #   name: Docker meta
-      #   id: meta
-      #   uses: docker/metadata-action@v3
-      #   with:
-      #     images: simojenki/de
+      -
+        name: Docker meta
+        id: meta
+        uses: docker/metadata-action@v3
+        with:
+          images: simojenki/meshcommander
       -
         name: Login to DockerHub
         if: github.event_name != 'pull_request'
@@ -36,5 +34,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
+          # build-args: 
           push: ${{ github.event_name != 'pull_request' }}
-          tags: simojenki/meshcommander:latest
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
