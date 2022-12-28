@@ -40,5 +40,5 @@ jobs:
           build-args: |
             MESHCOMMANDER_VERSION=${{ steps.meta.outputs.tags }}
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ steps.meta.outputs.tags || 'latest' }}
           labels: ${{ steps.meta.outputs.labels }}
