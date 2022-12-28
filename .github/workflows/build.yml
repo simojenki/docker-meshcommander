@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - 'main'
-    tags:
-      - 'v*'
+
+env:
+  MESHCOMMANDER_VERSION: 0.9.1-a
 
 jobs:
 
@@ -38,7 +39,9 @@ jobs:
         with:
           context: .
           build-args: |
-            MESHCOMMANDER_VERSION=${{ steps.meta.outputs.tags }}
+            MESHCOMMANDER_VERSION=$MESHCOMMANDER_VERSION
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags || '***/meshcommander:latest' }}
+          tags: |
+            "***/meshcommander:$MESHCOMMANDER_VERSION"
+            "***/meshcommander:latest"
           labels: ${{ steps.meta.outputs.labels }}

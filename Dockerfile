@@ -10,7 +10,7 @@ RUN apt-get update && \
 
 WORKDIR /meshcommander
 
-ARG MESHCOMMANDER_VERSION=0.9.5-a
+ARG MESHCOMMANDER_VERSION=0.0.0
 RUN npm install meshcommander@${MESHCOMMANDER_VERSION}
 
 EXPOSE 3000
