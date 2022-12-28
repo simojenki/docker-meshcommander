@@ -6,7 +6,7 @@ on:
       - 'main'
 
 env:
-  MESHCOMMANDER_VERSION: 0.9.1-a
+  MESHCOMMANDER_VERSION: 0.9.5-a
 
 jobs:
 
