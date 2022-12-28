@@ -42,6 +42,6 @@ jobs:
             MESHCOMMANDER_VERSION=$MESHCOMMANDER_VERSION
           push: ${{ github.event_name != 'pull_request' }}
           tags: |
-            "***/meshcommander:$MESHCOMMANDER_VERSION"
-            "***/meshcommander:latest"
+            "simojenki/meshcommander:$MESHCOMMANDER_VERSION"
+            "simojenki/meshcommander:latest"
           labels: ${{ steps.meta.outputs.labels }}
